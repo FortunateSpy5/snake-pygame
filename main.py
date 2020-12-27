@@ -2,12 +2,13 @@ import pygame
 import random
 from time import sleep
 
+
 class SnakeGame:
     def __init__(self):
         pygame.init()
         self.size = 800
         self.divisions = 20
-        self.length = 40
+        self.length = self.size // self.divisions
         self.screen = pygame.display.set_mode((self.size, self.size))
         self.font = pygame.font.Font('GamePlayed.ttf', 25)
         self.fps = 200
@@ -121,9 +122,9 @@ class SnakeGame:
 
     def draw(self):
         pygame.draw.rect(self.screen, self.bg, pygame.Rect(0, 0, self.size, self.size))
-        pygame.draw.rect(self.screen, self.food_color, pygame.Rect(self.food[0] * 40, self.food[1] * 40, 40, 40))
+        pygame.draw.rect(self.screen, self.food_color, pygame.Rect(self.food[0] * self.length, self.food[1] * self.length, self.length, self.length))
         for x, y in self.snake:
-            pygame.draw.rect(self.screen, self.color, pygame.Rect(x * 40, y * 40, 40, 40))
+            pygame.draw.rect(self.screen, self.color, pygame.Rect(x * self.length, y * self.length, self.length, self.length))
         self.screen.blit(self.font.render(f"High Score: {self.high_score}", True, (255, 255, 255)), (15, 10))
         self.screen.blit(self.font.render(f"Score: {self.score}", True, (255, 255, 255)), (15, 40))
 
