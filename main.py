@@ -3,7 +3,7 @@ import random
 from time import sleep
 
 
-class SnakeGame:
+class Game:
     def __init__(self):
         pygame.init()
         self.size = 800
@@ -135,5 +135,5 @@ class SnakeGame:
 
 
 if __name__ == '__main__':
-    obj = SnakeGame()
+    obj = Game()
     obj.play()
