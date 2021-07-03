@@ -60,7 +60,7 @@ class Game:
     def play(self):
         clock = pygame.time.Clock()
         self.draw()
-        pygame.display.update()
+        
 
         while True:
             clock.tick(self.fps)
@@ -132,6 +132,7 @@ class Game:
             pygame.draw.rect(self.screen, self.bg, pygame.Rect(0, 0, self.size, self.size))
             text = self.font.render("Press ESC to continue", True, (255, 255, 255))
             self.screen.blit(text, ((self.size - text.get_rect().width) // 2, (self.size - text.get_rect().height) // 2))
+        pygame.display.update()
 
 
 if __name__ == '__main__':
